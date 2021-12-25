@@ -1,9 +1,11 @@
 async function getUser() {
     try {
-        const res = await axios.get('/users');
-        const users = res.data;
-        const list = document.getElementById('list');
+        const res = await axios.get('/users'); // /users에서 json 데이터 가져오기
+        const users = res.data; // /users에서 header, data ... 중에 data만 가져옴
+        const list = document.getElementById('list'); //Element 가져오기
         list.innerHTML='';
+        
+        //response의 데이터 중 Key값만 가져와서 반복 실행
         Object.keys(users).map((key)=>{
             const userDiv = document.createElement('div');
             const span = document.createElement('span');
