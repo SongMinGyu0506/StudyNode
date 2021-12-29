@@ -14,3 +14,23 @@ app.use((req,res,next)=>{
     next();
 },(req,res,next)={...})
 ```
+
+# 미들웨어 안에 미들웨어를 넣는 방식
+기존 미들웨어의 기능을 확장하여 사용가능
+```javascript
+app.use(morgan('dev'))
+//or
+app.use((req,res,next)=>{
+    morgan('dev')(req,res,next);
+});
+```
+
+```javascript
+app.use((req,res,next)=>{
+    if(process.env.NODE_ENV === 'production') {
+        morgan('combined')(req,res,next);
+    } else {
+        morgan('dev')(req,res,next);
+    }
+});
+```

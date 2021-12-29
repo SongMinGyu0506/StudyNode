@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+# test image
+/home/song/node/basicNode/6/6.2.3-multer/uploads
