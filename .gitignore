@@ -106,3 +106,5 @@ dist
 
 # test image
 /home/song/node/basicNode/6/6.2.3-multer/uploads
+7/7.6/config/config.json
+#package-lock.json

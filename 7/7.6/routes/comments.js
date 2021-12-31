@@ -38,6 +38,7 @@ router.route('/:id')
             next(err);
         }
     })
+    //UPDATE comments SET comment='asdf' where id='0';
     .patch(async (req,res,next)=>{
         try{
             const result = await Comment.update({
@@ -53,6 +54,7 @@ router.route('/:id')
     })
     .delete(async (req,res,next)=>{
         try {
+            //DELETE FROM comment WHERE id=0;
             const result = await Comment.destroy({where:{id:req.params.id}});
             res.json(result);
         } catch (err) {
