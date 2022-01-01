@@ -7,7 +7,7 @@ const connect = () => {
     mongoose.connect('mongodb://song:5606@localhost:27017/admin', {
         dbName: 'nodejs',
         //useNewUrlParser: true,
-        //useCreateIndex: true,
+        //useCreateIndex: true, 미사용
     }, (error)=>{
         if (error) {
             console.log('몽고 디비 연결 에러\n',error);
