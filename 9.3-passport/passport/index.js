@@ -33,7 +33,18 @@ module.exports = () => {
     //매 요청시 실행, passport.session 미들웨어가 해당 메서드를 호출함 done의 두번째 인수로 넣었던 데이터가 해당 메서드의 매개변수
     //serializeUser로 로그인시 세션에 로그인 데이터를 저장하고, 세션에 저장한 아이디를 통해 사용자 정보 객체를 불러옴
     passport.deserializeUser((id,done)=>{
-        User.findOne({where:{id}})
+        User.findOne({
+            where:{id},
+            include: [{
+                model:User,
+                attributes:['id','nick'],
+                as: 'Followers',
+            },{
+                model:User,
+                attributes:['id','nick'],
+                as:'Followings',
+            }],
+        })
             .then(user=>done(null,user))
             .catch(err => done(err));
     });
